@@ -11,7 +11,7 @@ License: GPL2
 
 defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 
-define( 'TAGPLAY_WIDGET_DEFAULT_VERSION', '1.8.1' );
+define( 'TAGPLAY_WIDGET_DEFAULT_VERSION', '1.8.2' );
 
 class Tagplay_Widget extends WP_Widget {
     function __construct() {
