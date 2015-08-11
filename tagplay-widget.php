@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Tagplay Widget
-Plugin URI: http://tagplay.github.io/wordpress-plugin
+Plugin URI: http://tagplay.github.io/tagplay-wordpress-plugin
 Description: Provides Tagplay widget functionality to show social media posts managed by Tagplay (https://tagplay.co).
 Version: 1.0
 Author: Tagplay
