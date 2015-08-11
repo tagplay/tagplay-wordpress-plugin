@@ -17,13 +17,13 @@ This is a plugin for integrating [Tagplay widgets](https://tagplay.co) into Word
 -  a shortcode for use in posts or pages
 
 Both the widget and shortcode are simple wrappers around Tagplay's widget, which pulls social media posts into a curated feed.
-For more information, visit [https://tagplay.co].
+For more information, visit https://tagplay.co.
 
 == Installation ==
 
 1. Upload the `tagplay-widget` directory to your `/wp-content/plugins/` directory.
 2. Activate the plugin through the 'Plugins' menu in the WordPress admin.
-3. Sign up on [https://tagplay.co] if you haven't already, create some feeds, and get some posts into them!
+3. Sign up on https://tagplay.co if you haven't already, create some feeds, and get some posts into them!
 4. Click the name of the feed you want to integrate into your WordPress site on your Tagplay dashboard.
 5. Click 'Get Code' in the upper right corner of the feed detail page.
 6. Below the widget designer, click the WordPress button on the left under the 'Get Code' heading.
@@ -36,7 +36,7 @@ For more information, visit [https://tagplay.co].
 Tagplay is a service that allows you to collect posts from your social media accounts - or even everyone's - and pull them
 into 'feeds', optionally using hashtags to control where the post should go. Feeds can then be integrated into your website,
 where they will automatically update whenever you make posts on your social media accounts. For more information, visit
-[https://tagplay.co].
+https://tagplay.co.
 
 = Do I need a Tagplay account to use this plugin? =
 
