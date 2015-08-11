@@ -1,7 +1,7 @@
 === Plugin Name ===
 Contributors: tagplay
 Tags: widgets, shortcodes
-Requires at least: 3.0.1
+Requires at least: 3.3
 Tested up to: 4.2.4
 Stable tag: 1.0
 License: GPLv2
