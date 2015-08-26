@@ -3,7 +3,7 @@
 Plugin Name: Tagplay Widget
 Plugin URI: http://tagplay.github.io/tagplay-wordpress-plugin
 Description: Provides Tagplay widget functionality to show social media posts managed by Tagplay (https://tagplay.co).
-Version: 1.0
+Version: 1.1
 Author: Tagplay
 Author URI: http://tagplay.co
 License: GPL2
@@ -11,7 +11,7 @@ License: GPL2
 
 defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 
-define( 'TAGPLAY_WIDGET_DEFAULT_VERSION', '1.8.2' );
+define( 'TAGPLAY_WIDGET_DEFAULT_VERSION', '1.10.1' );
 
 class Tagplay_Widget extends WP_Widget {
     function __construct() {
@@ -44,7 +44,9 @@ class Tagplay_Widget extends WP_Widget {
     private static $default_attributes = array(
         'type' => 'grid',
         'style' => 'style-1',
-        'text' => 'tagless',
+        'hashtags' => 'remove',
+        'strip_hash' => true,
+        'lightbox' => true,
         'include_usernames' => true,
         'include_captions' => true,
         'videos' => true,
@@ -134,11 +136,10 @@ class Tagplay_Widget extends WP_Widget {
                 array('minimal', 'No style'),
                 array('style-1', 'Default'),
             ),
-            'text' => array(
-                array('original', 'Show hashtags'),
-                array('normalized', 'Strip #'),
-                array('stripped', 'Remove trigger hashtags'),
-                array('tagless', 'Remove all trailing tags'),
+            'hashtags' => array(
+                array('show', 'Show all'),
+                array('remove', 'Remove triggers'),
+                array('remove_triggers', 'Remove all trailing tags'),
             ),
         );
 
@@ -178,6 +179,23 @@ class Tagplay_Widget extends WP_Widget {
         $settings = self::get_base_settings($instance);
         $attributes = self::get_attributes($instance);
 
+        // Backwards-compatibility
+        if (array_key_exists('text', $instance)) {
+            if (!array_key_exists('hashtags', $instance)) {
+                // Set the value of the hashtags setting according to the provided text setting
+                $attributes['hashtags'] = $instance['text'] === 'stripped' ? 'remove_triggers' : ($instance['text'] === 'tagless' ? 'remove' : 'show');
+            }
+            if (!array_key_exists('strip_hash', $instance)) {
+                // Set the value of the strip_hash setting according to the provided text setting
+                $attributes['strip_hash'] = ($instance['text'] === 'normalized' || $instance['text'] === 'stripped' || $instance['text'] === 'tagless');
+            }
+        }
+
+        // If the user modifies the widget with the form, and has kept it on the previous default version, their widget should be updated
+        if ($settings['widget_version'] === '1.8.2') {
+            $settings['widget_version'] = TAGPLAY_WIDGET_DEFAULT_VERSION;
+        }
+
         ?>
         <p>
             <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title (displayed above the widget if set; leave blank for no title):' ); ?></label>
@@ -214,6 +232,7 @@ class Tagplay_Widget extends WP_Widget {
         if ($old_instance) {
             // If the old instance is not empty, we must assume boolean fields
             // that are not included in $new_instance are actually false
+            // (because non-checked checkboxes are not submitted)
             foreach ( self::$default_attributes as $attribute => $default ) {
                 if ( ( $default === true || $default === false ) && !array_key_exists( $attribute, $new_instance ) ) {
                     $new_instance[$attribute] = false;

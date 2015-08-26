@@ -2,8 +2,8 @@
 Contributors: tagplay
 Tags: widgets, shortcodes
 Requires at least: 3.3
-Tested up to: 4.2.4
-Stable tag: 1.0
+Tested up to: 4.3
+Stable tag: 1.1
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -25,7 +25,7 @@ For more information, visit https://tagplay.co.
 2. Activate the plugin through the 'Plugins' menu in the WordPress admin.
 3. Sign up on https://tagplay.co if you haven't already, create some feeds, and get some posts into them!
 4. Click the name of the feed you want to integrate into your WordPress site on your Tagplay dashboard.
-5. Click 'Get Code' in the upper right corner of the feed detail page.
+5. Click 'Publish'/'Get Code' in the upper right corner of the feed detail page.
 6. Below the widget designer, click the WordPress button on the left under the 'Get Code' heading.
 7. Follow the instructions there for either the widget or shortcode.
 
@@ -33,10 +33,10 @@ For more information, visit https://tagplay.co.
 
 = What is Tagplay? =
 
-Tagplay is a service that allows you to collect posts from your social media accounts - or even everyone's - and pull them
-into 'feeds', optionally using hashtags to control where the post should go. Feeds can then be integrated into your website,
-where they will automatically update whenever you make posts on your social media accounts. For more information, visit
-https://tagplay.co.
+Tagplay is a service that allows you to collect posts from your social media accounts - or other public Twitter/Instagram
+accounts - and pull them into 'feeds', optionally using hashtags to control where the post should go. Feeds can then be
+integrated into your website, where they will automatically update whenever you make posts on your social media accounts.
+For more information, visit https://tagplay.co.
 
 = Do I need a Tagplay account to use this plugin? =
 
@@ -58,10 +58,20 @@ from the same social media account but one collecting only posts hashtagged #mea
 
 == Changelog ==
 
+= 1.1 =
+* Updates the default Tagplay widget version to 1.10.1. This new version offers greater control over the handling of hashtags in posts, links hashtags and mentions to appropriate searches on the originating site, and adds lightbox functionality.
+* The 'Text' setting has been split into two settings, 'Hashtags' and 'Strip hash'. The former controls whether hashtags should be stripped from the end of a post, and the latter controls whether hashtags should have their initial # stripped, turning them into regular, unlinked words.
+* A 'Lightbox' setting has been added, controlling whether clicking posts in your widget should open the post in a lightbox.
+
+Old widgets using the shortcode will be automatically upgraded. To upgrade widgets in your theme, simply resave them on the Widgets page in the admin. Note that the 'Lightbox' setting is on by default in 1.1. If you do not wish to add lightbox functionality to your widget, you should uncheck the relevant box before saving.
+
 = 1.0 =
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.1 =
+This release updates the default Tagplay widget version to 1.10.1. This new version offers greater control over the handling of hashtags in posts, links hashtags and mentions to appropriate searches on the originating site, and adds lightbox functionality.
 
 = 1.0 =
 Initial release.
