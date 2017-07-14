@@ -3,7 +3,7 @@
 Plugin Name: Tagplay Widget
 Plugin URI: http://tagplay.github.io/tagplay-wordpress-plugin
 Description: Provides Tagplay widget functionality to show social media posts managed by Tagplay (https://tagplay.co).
-Version: 1.1
+Version: 1.2
 Author: Tagplay
 Author URI: http://tagplay.co
 License: GPL2
@@ -11,7 +11,7 @@ License: GPL2
 
 defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 
-define( 'TAGPLAY_WIDGET_DEFAULT_VERSION', '1.10.1' );
+define( 'TAGPLAY_WIDGET_DEFAULT_VERSION', '1.19.0' );
 
 class Tagplay_Widget extends WP_Widget {
     function __construct() {
@@ -54,6 +54,7 @@ class Tagplay_Widget extends WP_Widget {
         'include_link_metadata' => true,
         'link_image' => true,
         'link_description' => true,
+        'link_captions' => true,
         'include_dates' => false,
         'include_times' => false,
         'include_like' => false,
@@ -66,7 +67,7 @@ class Tagplay_Widget extends WP_Widget {
         'responsive' => false,
     );
 
-    public static $inverted_attributes = array('videos', 'images', 'link_image', 'link_description');
+    public static $inverted_attributes = array('videos', 'images', 'link_image', 'link_description', 'link_captions');
 
     private static function override_defaults($defaults, $instance) {
         $result = array();
@@ -192,7 +193,7 @@ class Tagplay_Widget extends WP_Widget {
         }
 
         // If the user modifies the widget with the form, and has kept it on the previous default version, their widget should be updated
-        if ($settings['widget_version'] === '1.8.2') {
+        if ($settings['widget_version'] === '1.10.1') {
             $settings['widget_version'] = TAGPLAY_WIDGET_DEFAULT_VERSION;
         }
 

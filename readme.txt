@@ -2,7 +2,7 @@
 Contributors: tagplay
 Tags: widgets, shortcodes
 Requires at least: 3.3
-Tested up to: 4.3
+Tested up to: 4.8
 Stable tag: 1.1
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -57,6 +57,12 @@ from the same social media account but one collecting only posts hashtagged #mea
 3. A Tagplay widget in a sidebar, with a different appearance showing only the images.
 
 == Changelog ==
+
+= 1.2 =
+* Updates the default Tagplay widget version to 1.19.0. This version brings a ton of new features and fixes, including the ability to embed videos from links or YouTube, posts with multiple photos or videos, and more.
+* A new setting has been added, 'Link captions'. This controls whether text accompanying shared links should be included.
+
+Old widgets using the shortcode will be automatically upgraded. To upgrade widgets in your theme, simply resave them on the Widgets page in the admin.
 
 = 1.1 =
 * Updates the default Tagplay widget version to 1.10.1. This new version offers greater control over the handling of hashtags in posts, links hashtags and mentions to appropriate searches on the originating site, and adds lightbox functionality.
