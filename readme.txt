@@ -76,6 +76,9 @@ Old widgets using the shortcode will be automatically upgraded. To upgrade widge
 
 == Upgrade Notice ==
 
+= 1.2 =
+This release updates the default Tagplay widget version to 1.19.0. This version brings a ton of new features and fixes, including the ability to embed videos from links or YouTube, posts with multiple photos or videos, and more.
+
 = 1.1 =
 This release updates the default Tagplay widget version to 1.10.1. This new version offers greater control over the handling of hashtags in posts, links hashtags and mentions to appropriate searches on the originating site, and adds lightbox functionality.
 
